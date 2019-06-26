@@ -1,0 +1,88 @@
+<!--<nav class="navbar navbar-expand-lg navbar-default navbar-static-top">
+  <a class="navbar-brand view zoom" href="#">
+      <img  src="assets/van1.png" height="55" class="d-inline-block align-top" alt="">
+    Vanguard  Assurance     
+ 
+  </a>
+  <ul class="nav justify-content-center  lighten-4 py-4">
+    
+    <li class="nav-item">
+        <a class="nav-link" (click)="quotechecker()">Quotes Checker</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" (click)="getAgents()">Agents Approval Portal</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link " (click)="profile()">{{userdata.firstName}} Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="#!" disabled>logout</a>
+  </li>
+
+
+
+ </ul>  
+
+
+ 
+</nav>-->
+
+
+
+
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark" [containerInside]="false">
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand>
+    <p class="navbar-brand">
+    <img src="assets/van1.png" alt="">
+    AQ Generator Admin Portal
+    </p>
+</mdb-navbar-brand>
+
+
+
+
+  <!-- Collapsible content -->
+  <links>
+
+
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+      <!--<li class="nav-item active">
+        <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="envelope"></mdb-icon> Contact<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="cog"></mdb-icon> Settings</a>
+      </li>-->
+
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link" (click)="quotechecker()">Quotes Checking
+        <!--  <span class="sr-only">(current)</span>-->
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" (click)="getAgents()">Agents Approval Status</a>
+      </li>
+    </ul>
+    
+
+      <!-- Dropdown -->
+      <li class="nav-item dropdown" dropdown>
+        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+          <mdb-icon fas icon="user"></mdb-icon>Welcome {{userdata.firstName}}<span class="caret"></span></a>
+        <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+          <a class="dropdown-item waves-light" mdbWavesEffect (click)="profile()">My account</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect (click)="logout()">Log out</a>
+        </div>
+      </li>
+
+    </ul>
+    <!-- Links -->
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+<router-outlet></router-outlet>

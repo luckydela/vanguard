@@ -1,0 +1,57 @@
+
+
+
+<br><br><br><br><br>
+
+      <div class="card-header">
+        <h3>Agents Approval </h3>
+
+        <div class=" form-inline active-cyan active-cyan-2 md-form mt-0 search">
+          <i class="fas fa-search" aria-hidden="true"></i>
+
+          <input class="form-control active-cyan active-cyan-2" type="text" placeholder="Search by ID" #query (keyup)="search(query.value)" aria-label="Search">
+      </div>
+
+      </div>
+        <table class="table table-hover">
+  <thead>
+    <tr align="center">
+      <th>#</th>
+      <th>ID</th>
+      <th>firstname</th>
+      <th>lastname</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Location</th>
+      <th>managerName</th>
+      <th>managerEmail</th>
+      <th>Status</th>
+      <th>Date</th>
+      <th>Time</th>
+        <th>Approve/Decline</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let agent of searchdata ; let i=index;" [ngStyle]="{'color': agent.status == 'decline' ? '#dc3545': ''}" class="text-center">
+      <td>{{ i + 1}}</td>
+      <td>{{agent.id}}</td>
+      <td>{{agent.firstName}}</td>
+      <td>{{agent.lastName}}</td>
+      <td>{{agent.phone}}</td>
+      <td>{{agent.email}}</td>
+      <td>{{agent.location}}</td>
+      <td>{{agent.managerName}}</td>
+      <td>{{agent.managerEmail}}</td>
+      <td>{{agent.status}}</td>
+      <td>{{agent.date}}</td>
+      <td>{{agent.time}}</td>
+
+      <td>
+        <button type="button"  [ngClass]="{'btn btn-primary': agent.status == 'decline' }"  *ngIf="agent.status == 'decline'" (click)="approveordecline(agent,'active')">approve</button>
+        <button type="button"  [ngClass]="{'btn btn-danger': agent.status == 'active' }" *ngIf="agent.status == 'active'" (click)="approveordecline(agent, 'decline')">decline</button>
+      </td>
+
+     </tr>
+     </tbody>
+        </table>
+   

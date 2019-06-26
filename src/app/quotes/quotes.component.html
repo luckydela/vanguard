@@ -1,0 +1,67 @@
+
+
+
+<br><br><br><br><br>
+
+      <div class="card-header">
+        <h3>Quotes Approval </h3>
+
+        <div class=" form-inline active-cyan active-cyan-2 md-form mt-0 search">
+          <i class="fas fa-search" aria-hidden="true"></i>
+
+          <input class="form-control active-cyan active-cyan-2" type="text" placeholder="Search by ID" #query (keyup)="search(query.value)" aria-label="Search">
+      </div>
+
+      </div>
+ 
+        <table class="table table-hover">
+  <thead>
+    <tr align="center">
+        <th>#</th>
+        <th>ID</th>
+        <th>date prepared</th>
+        <th>prepared for</th>
+        <th>prepared by</th>
+        <th>email</th>
+        <th>car year</th>
+        <th>car model</th>
+        <th>capacity</th>
+        <th>cost_of_car</th>
+        <th>insurance_type</th>
+        <th>cost_of_insurance</th>
+        <th>status</th>
+        <th>Manager's Email</th>
+        <th>Rate</th>
+        <th>time</th>
+        <th>Approve/Decline</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let quote of searchdata;let i = index;" [ngStyle]="{'color': quote.status == 'decline' ? '#dc3545': quote.status == 'pending' ? '#E86100': ''}" class="text-center">
+      <td>{{ i + 1}}</td>
+      <td>{{quote.quote_id}}</td>
+      <td>{{quote.date_prepared}}</td>
+      <td>{{quote.prepared_for}}</td>
+      <td>{{quote.prepared_by}}</td>
+      <td>{{quote.email}}</td>
+      <td>{{quote.car_year}}</td>
+      <td>{{quote.car_model}}</td>
+      <td>{{quote.capacity}}</td>
+      <td>{{quote.cost_of_car}}</td>
+      <td>{{quote.insurance_type}}</td>
+      <td>{{quote.cost_of_insurance}}</td>
+      <td>{{quote.status}}</td>
+      <td>{{quote.managerEmail}}</td>
+      <td>{{quote.rate}}</td>
+      <td>{{quote.timestamp}}</td>
+      <td>
+        <button type="button"  [ngClass]="{'btn btn-primary': quote.status == 'decline' }"  *ngIf="quote.status == 'decline'" (click)="approveordecline(quote,'active')">approve</button>
+        <button type="button"  [ngClass]="{'btn btn-danger': quote.status == 'active' }" *ngIf="quote.status == 'active'" (click)="approveordecline(quote, 'decline')">decline</button>
+        <button type="button"  [ngClass]="{'btn btn-orange': quote.status == 'pending' }"  *ngIf="quote.status == 'pending'" (click)="approveordecline(quote,'active')">pending</button>
+
+      </td>
+
+     </tr>
+     </tbody>
+        </table>
+   

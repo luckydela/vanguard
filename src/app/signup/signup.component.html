@@ -1,0 +1,56 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark" [containerInside]="false">
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand>
+    <p class="navbar-brand" href="#">
+    <img src="assets/van1.png" alt="">
+    AQ Generator Admin Portal
+    </p>
+</mdb-navbar-brand>
+
+
+
+</mdb-navbar>
+  
+    
+    <!--<div class="alert alert-info" *ngIf="falseAuth">
+      <strong>Information! </strong>{{loginreturnData}}
+    </div>-->
+  
+   <!-- <ngx-spinner>
+      bdColor="rgba(51,51,51,0.8)"
+      size="medium"
+      color="#fff"
+      type="ball-scale-multiple">
+     <p style="font-size: 20px; color: white">Loading...</p>
+    </ngx-spinner>-->
+  <br><br><br><br>
+     <div class="animated bouceInTop">
+     <form (ngSubmit)="login(f.value)" #f="ngForm">
+     <div class="">
+      <div class="group">
+      <input placeholder="firstname" id="firstname" name="firstname" type="text" required><span class="highlight"></span><span class="bar"></span>
+     </div>
+
+
+     <div class="group">
+        <input placeholder="lastname" id="lastname" name="lastname" type="text"  required><span class="highlight"></span><span class="bar"></span>
+       </div>
+       <div class="group">
+          <input placeholder="Email" id="email" name="email" type="email"  required><span class="highlight"></span><span class="bar"></span>
+         </div>
+    <div class="group">
+      <input placeholder="Password" id="password" name="password" type="password"  required><span class="highlight"></span><span class="bar"></span>
+      </div>
+      <button type="submit"  class="button buttonBlue" [disabled]="!f.valid">Signup
+      <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+      </button>
+      <a  class="signupcls" href="#">Back to Login</a>
+    </div>
+      </form>
+      <footer><a href="#" target="_blank"><img src="assets/van1.png"></a>
+     <p>Copyright <a href="#" target="_blank">Vanguard Agents Logger</a></p>
+      </footer>
+    </div>
+    
